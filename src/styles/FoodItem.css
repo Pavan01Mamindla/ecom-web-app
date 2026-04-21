@@ -1,0 +1,79 @@
+.food-item {
+  padding: 16px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  transition: transform 0.2s;
+}
+
+.food-item:hover {
+  transform: translateX(5px);
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.food-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.food-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.food-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.food-price {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.add-to-cart-btn {
+  background-color: white;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.add-to-cart-btn:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.quantity-controls {
+  background: var(--background);
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.qty-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.qty-btn.minus { color: var(--text-muted); }
+.qty-btn.plus { background: var(--primary); color: white; }
+
+.qty-btn:hover { opacity: 0.8; }
+
+.qty-value {
+  font-weight: 700;
+  min-width: 20px;
+  text-align: center;
+}

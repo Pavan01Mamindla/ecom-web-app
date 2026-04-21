@@ -1,0 +1,71 @@
+.success-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.success-card {
+  max-width: 600px;
+  border-radius: 32px;
+}
+
+.success-card h1 {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.order-id-badge {
+  background: rgba(255, 71, 87, 0.1);
+  padding: 8px 16px;
+  border-radius: 50px;
+  display: inline-flex;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: var(--primary);
+}
+
+.success-card .subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.order-summary-card {
+  box-shadow: var(--shadow);
+}
+
+.summary-header h3 {
+  font-size: 1.2rem;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.home-btn {
+  background-color: var(--secondary);
+  color: white;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-weight: 700;
+  width: fit-content;
+  transition: all 0.2s;
+}
+
+.home-btn:hover {
+  background-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 71, 87, 0.2);
+}
+
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.p-12 { padding: 48px; }
+.mt-10 { margin-top: 40px; }
+.mt-12 { margin-top: 48px; }
+.rounded-2xl { border-radius: 16px; }
+.p-8 { padding: 32px; }
+.pb-4 { padding-bottom: 16px; }
+.border-b { border-bottom: 1px solid var(--border); }
+.border-t { border-top: 1px solid var(--border); }
+.pt-4 { padding-top: 16px; }

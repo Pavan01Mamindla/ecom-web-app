@@ -1,0 +1,171 @@
+.cart-item {
+  padding: 20px;
+  border-radius: var(--radius);
+}
+
+.item-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item-details h3 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.item-price {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.remove-btn {
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.remove-btn:hover {
+  color: var(--error);
+}
+
+.order-summary {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 24px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.summary-row {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.summary-row span:last-child {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.discount-row {
+  color: var(--success) !important;
+}
+
+.discount-row span {
+  color: var(--success) !important;
+}
+
+.remove-promo {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.remove-promo:hover {
+  background: var(--border);
+  color: var(--error);
+}
+
+.promo-input-section input {
+  flex-grow: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.promo-input-section input:focus {
+  border-color: var(--primary);
+}
+
+.promo-input-section button {
+  background: var(--secondary);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.promo-msg {
+  font-size: 0.8rem;
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.promo-msg.success { color: var(--success); }
+.promo-msg.error { color: var(--error); }
+
+.summary-divider {
+  height: 1px;
+  background: var(--border);
+}
+
+.grand-total {
+  font-size: 1.4rem;
+  color: var(--secondary) !important;
+}
+
+.grand-total span {
+  color: var(--primary) !important;
+}
+
+.checkout-btn {
+  width: 100%;
+  background-color: var(--primary);
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+}
+
+.checkout-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.empty-cart-content {
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 24px;
+}
+
+.primary-btn {
+  background-color: var(--primary);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 12px;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.success-text {
+  color: var(--success) !important;
+}
+
+.my-4 { margin-top: 16px; margin-bottom: 16px; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.py-12 { padding-top: 48px; padding-bottom: 48px; }
+.px-8 { padding-left: 32px; padding-right: 32px; }

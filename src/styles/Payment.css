@@ -1,0 +1,40 @@
+.payment-card {
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 24px;
+}
+
+.total-to-pay {
+  border: 1px solid var(--border);
+}
+
+.total-to-pay .label {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.total-to-pay .amount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.payment-btn {
+  width: 100%;
+  background-color: var(--success);
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+}
+
+.payment-btn:hover {
+  background-color: #26af5a;
+  transform: translateY(-2px);
+}
+
+.text-sm {
+  font-size: 0.85rem;
+}
