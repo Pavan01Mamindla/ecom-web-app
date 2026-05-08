@@ -1,5 +1,5 @@
 from database import engine, SessionLocal
-import models
+from backend import database
 
 # Mock Data from our frontend
 restaurants_data = [

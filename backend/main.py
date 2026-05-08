@@ -2,7 +2,7 @@ from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session, joinedload, selectinload
 from typing import List
-import models, schemas, auth, database
+from backend import models, schemas, auth, database
 
 
 models.Base.metadata.create_all(bind=database.engine)
