@@ -1,5 +1,5 @@
-from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime, Boolean
+from sqlalchemy.orm import relationship, backref
 from datetime import datetime
 from database import Base
 
@@ -53,3 +53,22 @@ class OrderItem(Base):
     
     order = relationship("Order", back_populates="items")
     menu_item = relationship("MenuItem")
+
+class DeliveryPartner(Base):
+    __tablename__ = "delivery_partners"
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(100))
+    phone = Column(String(20))
+    is_available = Column(Boolean, default=True)
+    current_lat = Column(Float, nullable=True)
+    current_lng = Column(Float, nullable=True)
+
+class Delivery(Base):
+    __tablename__ = "deliveries"
+    id = Column(Integer, primary_key=True, index=True)
+    order_id = Column(Integer, ForeignKey("orders.id"), unique=True)
+    partner_id = Column(Integer, ForeignKey("delivery_partners.id"))
+    status = Column(String(50), default="assigned") # assigned, picked, delivered
+    
+    order = relationship("Order", backref=backref("delivery", uselist=False))
+    partner = relationship("DeliveryPartner")

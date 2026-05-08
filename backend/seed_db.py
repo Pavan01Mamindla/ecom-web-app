@@ -134,6 +134,25 @@ def seed():
             db.add(menu_item)
     
     db.commit()
+    
+    # Check if delivery partners already exist
+    if db.query(models.DeliveryPartner).count() == 0:
+        partners_data = [
+            {"name": "Raju", "phone": "9876543210", "current_lat": 17.3850, "current_lng": 78.4867},
+            {"name": "Suresh", "phone": "9876543211", "current_lat": 17.3855, "current_lng": 78.4870},
+            {"name": "Venkat", "phone": "9876543212", "current_lat": 17.3860, "current_lng": 78.4875}
+        ]
+        for p in partners_data:
+            partner = models.DeliveryPartner(
+                name=p["name"],
+                phone=p["phone"],
+                is_available=True,
+                current_lat=p["current_lat"],
+                current_lng=p["current_lng"]
+            )
+            db.add(partner)
+        db.commit()
+    
     print("Database seeded successfully!")
     db.close()
 

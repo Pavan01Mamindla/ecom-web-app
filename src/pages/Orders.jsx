@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Package, Calendar, Clock, ChevronRight } from 'lucide-react';
+import { Package, Calendar, Clock, ChevronRight, CheckCircle, ChefHat, Bike, Home, MapPin, User, Phone } from 'lucide-react';
 import { fetchAPI } from '../api';
 import '../styles/Orders.css';
 
@@ -57,9 +57,72 @@ const Orders = () => {
                     </div>
                   </div>
                   <span className={`order-status ${order.status.toLowerCase()}`}>
-                    {order.status}
+                    {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
                   </span>
                 </div>
+
+                <div className="order-tracker">
+                  <div className="tracker-progress-container">
+                    {/* Progress Bar Background */}
+                    <div className="tracker-progress-bg"></div>
+                    
+                    {/* Active Progress Bar */}
+                    <div 
+                      className="tracker-progress-active"
+                      style={{ 
+                        width: 
+                          order.status === 'placed' ? '0%' :
+                          order.status === 'accepted' ? '25%' :
+                          order.status === 'preparing' ? '50%' :
+                          order.status === 'picked' ? '75%' :
+                          order.status === 'delivered' ? '100%' : '0%'
+                      }}
+                    ></div>
+
+                    {[
+                      { status: 'placed', icon: <Package size={20} />, label: 'Placed' },
+                      { status: 'accepted', icon: <CheckCircle size={20} />, label: 'Accepted' },
+                      { status: 'preparing', icon: <ChefHat size={20} />, label: 'Preparing' },
+                      { status: 'picked', icon: <Bike size={20} />, label: 'Picked' },
+                      { status: 'delivered', icon: <Home size={20} />, label: 'Delivered' }
+                    ].map((step, idx) => {
+                      const isActive = [
+                        'placed', 'accepted', 'preparing', 'picked', 'delivered'
+                      ].indexOf(order.status) >= idx;
+                      
+                      return (
+                        <div key={idx} className="tracker-step">
+                          <div className={`tracker-icon ${isActive ? 'active' : ''}`}>
+                            {step.icon}
+                          </div>
+                          <span className={`tracker-label ${isActive ? 'active' : ''}`}>
+                            {step.label}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {order.delivery && order.delivery.partner && (
+                  <div className="delivery-partner-info">
+                    <div className="delivery-avatar">
+                      <User size={24} />
+                    </div>
+                    <div className="delivery-details">
+                      <h4>Delivery Partner</h4>
+                      <p>{order.delivery.partner.name}</p>
+                    </div>
+                    <div className="delivery-contact">
+                      <a href={`tel:${order.delivery.partner.phone}`}>
+                        <Phone size={14} /> {order.delivery.partner.phone}
+                      </a>
+                      <span className="live-tracking-badge">
+                        <MapPin size={12} /> Live tracking coming soon
+                      </span>
+                    </div>
+                  </div>
+                )}
 
                 <div className="order-items">
                   {order.items && order.items.map((item, index) => (

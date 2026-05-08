@@ -66,6 +66,29 @@ class OrderCreate(BaseModel):
     items: List[OrderItemCreate]
     total_amount: float
 
+class DeliveryPartnerBase(BaseModel):
+    name: str
+    phone: str
+    is_available: bool = True
+    current_lat: Optional[float] = None
+    current_lng: Optional[float] = None
+
+class DeliveryPartnerResponse(DeliveryPartnerBase):
+    id: int
+    class Config:
+        from_attributes = True
+
+class DeliveryBase(BaseModel):
+    order_id: int
+    partner_id: int
+    status: str
+
+class DeliveryResponse(DeliveryBase):
+    id: int
+    partner: Optional[DeliveryPartnerResponse] = None
+    class Config:
+        from_attributes = True
+
 class OrderResponse(BaseModel):
     id: int
     user_id: int
@@ -73,6 +96,7 @@ class OrderResponse(BaseModel):
     status: str
     created_at: datetime
     items: List[OrderItemResponse]
+    delivery: Optional[DeliveryResponse] = None
     class Config:
         from_attributes = True
 
